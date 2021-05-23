@@ -147,7 +147,7 @@ const CreateBlog = ({ setOpenPop, setOpenSnack, EditRecord, isEdit, setsnackMess
                             <Select
                                 label='Category'
                                 name='category'
-                                value={values.category}
+                                
 
                             >
                                 <MenuItem value="">None</MenuItem>

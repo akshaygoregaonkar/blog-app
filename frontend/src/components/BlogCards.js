@@ -21,9 +21,11 @@ import CreateBlog from './CreateBlog';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        width: 500,
+        width: 450,
         align: 'center',
-        margin: '20px'
+        margin: '10px',
+        marginTop:'20px',
+        border:'1px solid black'
     },
     media: {
         height: 0,
@@ -110,89 +112,15 @@ const BlogCards = (Props) => {
         }).catch(error => console.log("error"))
        }
     
-       const getBlogs = () => {
-        let list = [];
-        let result = [];
-        
-        shoBlog.map(blog => {
-            return list.push(
-                <div>
-                <Card className={classes.root}>
-                    <CardHeader
-                        
-                        action={
-                             <>{ myblog && (<div>
-        
-                            {blog.user == authentication.id ? <div> <IconButton> <EditIcon onClick={() => handleEdit(blog)} /></IconButton>
-                                <IconButton> <CloseIcon onClick={() => handleDelete(blog.id)} /> </IconButton>
-        
-                            </div>
-                                : <></>}
-        
-                        </div>)}</>
-        
-                            }
-                        title={blog.title}
-        
-        
-                    />
-                    <CardMedia
-                        className={classes.media}
-                        image={`${localconfig.host}${blog.thumbnail}`}
-                        title={`${blog.user_details.first_name} ${blog.user_details.last_name}`}
-                    />
-                    <CardContent>
-        
-                        <Typography > <strong className="d-inline-block mb-2 text-primary">{capitalizeFirstLetter(blog.category)}</strong>
-                        </Typography>
-                        <Typography>
-                            <div className="mb-1 text-muted">Auther : {`${blog?.user_details.first_name} ${blog?.user_details.last_name}`}</div>
-                            <div className="mb-1 text-muted"> Date: {blog.date}</div>
-        
-                        </Typography>
-        
-                        <Typography >
-                            {blog.excerpt}
-                        </Typography>
-                        <hr />
-                        <Typography >
-                        
-                            <p>{blog.content}</p>
-                         
-                            </Typography>
-    
-                      
-                    </CardContent>
-                     </Card>
-                     </div>
-                
-            );
-        });
-
-        for (let i = 0; i < list.length; i += 2) {
-            result.push(
-                <div key={i} className='row mb-2'>
-                    <div className='col-md-6'>
-                        {list[i]}
-                    </div>
-                    <div className='col-md-6 '>
-                        {list[i+1] ? list[i+1] : null}
-                    </div>
-                </div>
-            )
-        }
-
-        return result;
-    };
-
+      
 
 
 
 
     return (
-        <div className='container '>
-            {/* {shoBlog.map(blog=>
-            <div>
+        <div>
+            {shoBlog.map((blog,index)=>
+              <div key={index} style={{ float: 'left', marginLeft: '50px' }}>
             <Card className={classes.root}>
                 <CardHeader
                     
@@ -241,9 +169,8 @@ const BlogCards = (Props) => {
                 </CardContent>
                  </Card>
                  </div>)}
-            */}
-            {getBlogs()}
-
+           
+    
          
                     
              <CustomSnackbar openSnack={openSnack}
