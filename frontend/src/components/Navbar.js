@@ -93,7 +93,19 @@ export default function Navbar() {
               Sign In
               </Link>
           </li>}
-          {login && <li>
+          {login && (<>
+            <li>
+            
+            <Link
+             
+              className='nav-links-mobile'
+              onClick={()=>setOpen(true)}
+            >
+             CREATE BLOG
+              </Link>
+          </li>
+          
+          <li>
             <Link
               to='/sign-out'
               className='nav-links-mobile'
@@ -101,7 +113,12 @@ export default function Navbar() {
             >
               Sign Out
               </Link>
-          </li>}
+          </li>
+          
+          
+          
+          
+         </> )}
 
 
         </ul>

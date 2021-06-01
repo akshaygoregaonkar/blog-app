@@ -1,5 +1,5 @@
  const localconfig={
-    host:'http://localhost:8000'
+    host:'https://backend-blog-appp.herokuapp.com'
 
 }
 export default localconfig

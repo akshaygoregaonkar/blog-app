@@ -27,7 +27,7 @@ function SignUp(Props) {
 
         axios({
             method: 'post',
-            url: 'http://127.0.0.1:8000/signUp/',
+            url: 'https://backend-blog-appp.herokuapp.com/signUp/',
             headers: {
                 
                 'Content-Type': 'application/json'
